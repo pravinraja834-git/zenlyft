@@ -835,10 +835,10 @@ section#contact  { background: var(--bg-page); }
     transition: transform 0.25s var(--ease), filter 0.2s;
 }
 .team-linkedin-link {
-    color: #3f3a99;
+    color: #0A66C2;
 }
 .team-whatsapp-link {
-    color: #1c1a5d;
+    color: #25D366;
 }
 .team-linkedin-link:hover,
 .team-whatsapp-link:hover {
