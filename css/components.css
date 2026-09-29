@@ -497,26 +497,53 @@
   display: block;
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 4.1;
+  aspect-ratio: 4 / 4.2;
   background-color: #FAF7F2;
   background-image: radial-gradient(#D6CEBE 1.2px, transparent 1.2px);
   background-size: 16px 16px;
   border-bottom: 2px solid #1C1917;
   border-radius: 0 !important;
+  padding: 1rem 1.5rem 0 1.5rem;
+}
+
+/* ZenLyft Logo Watermark Background */
+.team-card__image-link::before {
+  content: '';
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity var(--t-base), transform var(--t-base);
+}
+
+.team-card__image-link:hover::before {
+  opacity: 0.28;
+  transform: translate(-50%, -50%) scale(1.08);
 }
 
 .team-card__image {
+  position: relative;
+  z-index: 2;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center bottom;
   display: block;
+  margin: 0 auto;
   border-radius: 0 !important;
   transition: transform var(--t-slow), filter var(--t-base);
 }
 
 .team-card__image-link:hover .team-card__image {
-  transform: scale(1.05);
+  transform: scale(1.04);
   filter: drop-shadow(0 12px 20px rgba(200, 90, 50, 0.35));
 }
 
@@ -525,6 +552,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 3;
   background: #1C1917;
   border-top: 2px solid #1C1917;
   padding: 0.75rem 1rem;
@@ -1009,6 +1037,29 @@
   z-index: 3;
 }
 
+/* Single Central ZenLyft Logo Watermark Background for About Section Stage */
+.papercut-stage__canvas::before {
+  content: '';
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(340px, 60vw);
+  height: min(340px, 60vw);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.papercut-stage-banner:hover .papercut-stage__canvas::before {
+  opacity: 0.28;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
 @media (max-width: 768px) {
   .papercut-stage__canvas {
     height: 340px;
@@ -1068,9 +1119,12 @@
 .papercut-person__wrap {
   position: relative;
   display: inline-block;
+  width: 100%;
 }
 
 .papercut-person__img {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   height: auto;
@@ -1555,9 +1609,30 @@
   padding: var(--sp-3);
   box-shadow: 5px 5px 0px #1C1917;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-dossier__portrait-wrap::before {
+  content: '';
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 70%;
+  background-image: url('../Images/ZenLyft_icon.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .modal-dossier__portrait-img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: auto;
   display: block;
