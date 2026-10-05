@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     sanjay: {
       name: "Sanjay S",
-      role: "Co-Founder & Chief Technology Officer",
+      role: "Co-Founder & Research Director (Software Architecture)",
       tag: "REF #02 // SOFTWARE ARCHITECTURE",
       cutout: "./Images/sanjay.jpeg",
       bio: "Leading software architecture, backend infrastructure, and scalable system engineering. Driving core technical execution and microservices architecture across ZenLyft's digital product lines.",
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     pravinraj: {
       name: "Pravinraj Raja",
-      role: "Co-Founder & CTO (AI Engineering)",
+      role: "Co-Founder & Chief Technology Officer (AI & Frontend UX)",
       tag: "REF #03 // AI & FRONTEND UX",
       cutout: "./Images/pravinraj.jpeg",
       bio: "Spearheading AI model integration, intelligent search pipelines, and seamless user experiences. Transforming complex machine learning intelligence into intuitive, human-centered web platforms.",
