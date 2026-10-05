@@ -32,6 +32,273 @@
   color: var(--color-text-secondary);
 }
 
+.page-header__action {
+  margin-top: var(--sp-4);
+}
+
+/* Our Journey slideshow */
+.journey-intro {
+  max-width: 760px;
+  margin-bottom: var(--sp-6);
+}
+
+.journey-gallery {
+  margin-bottom: var(--sp-8);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.journey-gallery__viewport {
+  display: flex;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.journey-gallery__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.journey-gallery__viewport:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: -3px;
+}
+
+.journey-gallery__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.journey-gallery__slide img {
+  display: block;
+  width: 100%;
+  height: clamp(260px, 48vw, 500px);
+  object-fit: contain;
+  background: var(--color-surface-raised);
+}
+
+.journey-gallery__slide figcaption {
+  min-height: 3.5em;
+  padding: var(--sp-2) var(--sp-3);
+  border-top: 2px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.journey-gallery__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  border-top: 2px solid var(--color-border);
+  padding: var(--sp-2) var(--sp-3);
+}
+
+.journey-gallery__dots {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1);
+}
+
+.journey-gallery__dot {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  padding: 0;
+  border: 2px solid var(--color-border);
+  border-radius: 50% !important;
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: background-color var(--t-fast), transform var(--t-fast);
+}
+
+.journey-gallery__dot[aria-current="true"] {
+  background: var(--color-accent);
+  transform: scale(1.15);
+}
+
+.journey-gallery__dot:focus-visible,
+.journey-gallery__toggle:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.journey-gallery__status {
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.journey-gallery__toggle {
+  min-height: 40px;
+  padding: 0 var(--sp-2);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.journey-gallery__toggle:hover {
+  background: var(--color-text-primary);
+  color: var(--color-text-inverse);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-gallery__viewport {
+    scroll-behavior: auto;
+  }
+}
+
+.journey-slide__eyebrow {
+  margin-bottom: var(--sp-2);
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.journey-timeline {
+  display: grid;
+  gap: var(--sp-6);
+}
+
+.journey-timeline__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.journey-timeline__image {
+  display: block;
+  width: 100%;
+  height: clamp(240px, 48vw, 420px);
+  object-fit: contain;
+  background: var(--color-surface-raised);
+}
+
+.journey-timeline__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--sp-4);
+  border-top: 2px solid var(--color-border);
+}
+
+.journey-timeline__content .journey-slide__title {
+  margin-bottom: var(--sp-2);
+}
+
+.journey-timeline__content .journey-slide__text {
+  max-width: 620px;
+}
+
+@media (min-width: 768px) {
+  .journey-timeline__item {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .journey-timeline__item--reverse {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  }
+
+  .journey-timeline__item--reverse .journey-timeline__image {
+    order: 2;
+  }
+
+  .journey-timeline__item--reverse .journey-timeline__content {
+    order: 1;
+  }
+
+  .journey-timeline__image {
+    height: 100%;
+    min-height: 340px;
+  }
+
+  .journey-timeline__content {
+    padding: var(--sp-6);
+    border-top: 0;
+    border-left: 2px solid var(--color-border);
+  }
+
+  .journey-timeline__item--reverse .journey-timeline__content {
+    border-left: 0;
+    border-right: 2px solid var(--color-border);
+  }
+}
+
+.journey-carousel {
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.journey-carousel__track {
+  display: flex;
+  width: max-content;
+  animation: journey-scroll-right 32s linear infinite;
+}
+
+.journey-carousel__track:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: -3px;
+}
+
+.journey-carousel__set {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3);
+}
+
+.journey-slide__image {
+  display: block;
+  flex: none;
+  width: clamp(240px, 36vw, 420px);
+  height: clamp(260px, 38vw, 400px);
+  object-fit: contain;
+  background: var(--color-surface-raised);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+@keyframes journey-scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-carousel__track {
+    width: 100%;
+    overflow-x: auto;
+    animation: none;
+  }
+
+  .journey-carousel__set[aria-hidden="true"] {
+    display: none;
+  }
+}
+
 /* Beliefs & Principles Bento Grid */
 .beliefs-grid {
   display: grid;
@@ -79,7 +346,7 @@
 
 .belief-card:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0px #C85A32;
+  box-shadow: 7px 7px 0px #2CC1FF;
 }
 
 .belief-card__header {
@@ -164,7 +431,7 @@
 
 .value-item:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0px #C85A32;
+  box-shadow: 7px 7px 0px #2CC1FF;
 }
 
 .value-item__badge {
@@ -173,7 +440,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #C85A32;
+  color: #2CC1FF;
   margin-bottom: var(--sp-2);
 }
 
@@ -271,7 +538,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #C85A32;
+  color: #2CC1FF;
   margin-bottom: var(--sp-1);
 }
 
@@ -325,7 +592,7 @@
 .form-textarea:focus {
   outline: none;
   border-color: #1C1917;
-  box-shadow: 4px 4px 0px #C85A32;
+  box-shadow: 4px 4px 0px #2CC1FF;
 }
 
 .form-textarea {
@@ -390,7 +657,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #C85A32;
+  color: #2CC1FF;
   display: inline-block;
   margin-bottom: var(--sp-1);
 }
@@ -431,7 +698,7 @@
 .contact-channel-item:hover {
   background-color: #FAF7F2;
   transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0px #C85A32;
+  box-shadow: 5px 5px 0px #2CC1FF;
   border-color: #1C1917;
 }
 
@@ -461,7 +728,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #C85A32;
+  color: #2CC1FF;
 }
 
 .contact-channel-value {
@@ -484,6 +751,5 @@
 
 .contact-channel-item:hover .contact-channel-arrow {
   transform: translateX(4px);
-  color: #C85A32;
+  color: #2CC1FF;
 }
-
