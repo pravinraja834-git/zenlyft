@@ -1,46 +1,52 @@
 /* ============================================================
    ZenLyft Official Startup Company Website : Base Design System
-   Color Palette: Deep Indigo Foundation & Pure Crisp White UI
-   Border Radius: Strict 0% Border Radius (Sharp Rectilinear Geometry)
+   Theme: Vintage Editorial / Paper-Cut Archive Design System
+   Background: Warm Vintage Cream (#FAF7F2) + Dot Grid Texture
+   Typography: Playfair Display (Serif), Space Mono (Monospace Stamps),
+               Caveat (Handwritten Highlights), Plus Jakarta Sans (Body)
+   Borders & Shadows: 2px Solid Black (#1C1917) + Hard Offset Shadows
+   Accent: Electric Blue (#2CC1FF)
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-  /* Crisp White foundation with subtle slate/indigo neutral surfaces */
-  --color-bg:              #FFFFFF;
-  --color-surface:         #F8FAFC;
-  --color-surface-raised:  #F1F5F9;
-  --color-surface-hover:   #E2E8F0;
-  --color-surface-active:  #CBD5E1;
+  /* Warm Vintage Cream analog paper foundation */
+  --color-bg:              #FAF7F2;
+  --color-surface:         #FAF7F2;
+  --color-surface-raised:  #F5F0E6;
+  --color-surface-hover:   #EFE8DA;
+  --color-surface-active:  #E5DCB8;
+  --color-surface-card:    #FAF7F2;
 
-  /* Indigo-tinted slate borders */
-  --color-border:          #E2E8F0;
-  --color-border-subtle:   #F1F5F9;
-  --color-border-light:    #CBD5E1;
+  /* Rich black/charcoal borders & text */
+  --color-border:          #1C1917;
+  --color-border-subtle:   #D6CEBE;
+  --color-border-light:    #E7E0D3;
 
-  /* High-contrast typography on light background */
-  --color-text-primary:    #0F172A;
-  --color-text-secondary:  #475569;
-  --color-text-muted:      #64748B;
-  --color-text-inverse:    #FFFFFF;
+  /* High-contrast dark charcoal text */
+  --color-text-primary:    #1C1917;
+  --color-text-secondary:  #57534E;
+  --color-text-muted:      #78716C;
+  --color-text-inverse:    #FAF7F2;
 
-  /* ZenLyft signature Deep Indigo accent */
-  --color-accent:          #3730A3;
-  --color-accent-light:    #4F46E5;
-  --color-accent-dark:     #1E1B4B;
-  --color-accent-dim:      rgba(55, 48, 163, 0.08);
-  --color-accent-border:   rgba(55, 48, 163, 0.22);
-  --color-accent-glow:     rgba(55, 48, 163, 0.12);
+  /* Electric blue signature accent */
+  --color-accent:          #2CC1FF;
+  --color-accent-light:    #2CC1FF;
+  --color-accent-dark:     #2CC1FF;
+  --color-accent-dim:      rgba(44, 193, 255, 0.12);
+  --color-accent-border:   #2CC1FF;
+  --color-accent-glow:     rgba(44, 193, 255, 0.2);
 
   /* Functional status tokens */
-  --color-success:         #059669;
-  --color-success-dim:     rgba(5, 150, 105, 0.12);
+  --color-success:         #15803D;
+  --color-success-dim:     rgba(21, 128, 61, 0.12);
 
-  /* Typography families */
-  --font-display:  'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-body:     'DM Sans', 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
-  --font-mono:     'IBM Plex Sans', monospace;
+  /* Editorial Typography families */
+  --font-display:  'Playfair Display', Georgia, serif;
+  --font-body:     'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono:     'Space Mono', monospace;
+  --font-cursive:  'Caveat', cursive;
 
   /* Spacing scale */
   --sp-05:  4px;
@@ -57,11 +63,17 @@
   --sp-16: 128px;
   --sp-20: 160px;
 
-  /* Strict 0% Border Radius Across All Elements */
+  /* Strict 0% Border Radius (Sharp Rectilinear Paper Cut Geometry) */
   --radius-sm:  0px;
   --radius-md:  0px;
   --radius-lg:  0px;
   --radius-xl:  0px;
+
+  /* Offset Hard Shadow Tokens */
+  --shadow-sm:   3px 3px 0px #1C1917;
+  --shadow-md:   5px 5px 0px #1C1917;
+  --shadow-lg:   8px 8px 0px #1C1917;
+  --shadow-accent: 5px 5px 0px #2CC1FF;
 
   /* Transitions */
   --t-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -70,15 +82,15 @@
 
   /* Layout */
   --max-width:  1240px;
-  --nav-height: 72px;
+  --nav-height: 76px;
 }
 
-/* Reset & Enforcement of 0% Border Radius */
+/* Reset & Enforcement of Sharp Rectilinear Geometry */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border-radius: 0 !important; /* Strict 0% border radius requirement */
+  border-radius: 0 !important;
 }
 
 html {
@@ -90,6 +102,8 @@ html {
 
 body {
   background-color: var(--color-bg);
+  background-image: radial-gradient(#D6CEBE 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
   color: var(--color-text-primary);
   font-family: var(--font-body);
   font-size: 1rem;
@@ -105,30 +119,30 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   color: var(--color-text-primary);
   font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: -0.025em;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
 h1 {
-  font-size: clamp(1.85rem, 4.5vw, 3.75rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-size: clamp(2rem, 4.8vw, 3.85rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
 }
 
 h2 {
-  font-size: clamp(1.45rem, 3.2vw, 2.5rem);
+  font-size: clamp(1.6rem, 3.4vw, 2.65rem);
   font-weight: 700;
 }
 
 h3 {
-  font-size: clamp(1.2rem, 2.2vw, 1.75rem);
+  font-size: clamp(1.25rem, 2.4vw, 1.85rem);
   font-weight: 600;
 }
 
 h4 {
-  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-size: clamp(1.08rem, 1.6vw, 1.35rem);
   font-weight: 600;
 }
 
@@ -179,7 +193,7 @@ img, svg, video, iframe {
 .section {
   padding-top: var(--sp-10);
   padding-bottom: var(--sp-10);
-  border-bottom: 1px solid var(--color-border-subtle);
+  border-bottom: 2px solid var(--color-border-subtle);
 }
 
 @media (min-width: 992px) {
@@ -229,24 +243,54 @@ img, svg, video, iframe {
   animation: none !important;
 }
 
-/* Eyebrows & Badges */
+/* Eyebrows & Archive Stamps */
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: var(--sp-15);
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--color-accent-light);
+  letter-spacing: 0.1em;
+  background-color: var(--color-text-primary);
+  color: var(--color-bg);
+  padding: 0.25rem 0.65rem;
   margin-bottom: var(--sp-2);
+  border: 1px solid var(--color-text-primary);
 }
 
 .eyebrow::before {
-  content: '';
-  display: block;
-  width: 16px;
-  height: 1.5px;
-  background-color: var(--color-accent-light);
+  display: none;
+}
+
+/* Editorial Handwritten Highlight & Stamps */
+.editorial-highlight {
+  display: inline-block;
+  background: rgba(44, 193, 255, 0.12);
+  color: #2CC1FF;
+  font-family: var(--font-cursive);
+  font-size: 1.35rem;
+  font-weight: 700;
+  padding: 0.1rem 0.5rem;
+  border-bottom: 2px dashed #2CC1FF;
+  margin-left: 0.3rem;
+}
+
+.editorial-stamp {
+  background: #1C1917;
+  color: #FAF7F2;
+  padding: 0.2rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.editorial-serial {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #78716C;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }

@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="icon" href="./Images/Zenlyft_logo.png" type="image/png" />
+  <link rel="icon" href="./Images/Zenlyft_logo.png" type="image/png" />
   <title>About ZenLyft : Technology Startup</title>
   <meta name="description" content="ZenLyft is a technology startup focused on building intelligent digital products that make complicated processes simpler, more accessible, and more useful." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/pages/inner.css" />
@@ -15,10 +19,7 @@
   <header role="banner">
     <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="container nav__inner">
-        <a href="index.html" class="nav__logo" aria-label="ZenLyft homepage">
-          <img src="./Images/ZenLyft__logo.png" alt="ZenLyft Logo" class="nav__logo-img" />
-          <span class="nav__logotype">ZenLyft</span>
-        </a>
+        <a href="index.html" class="nav__logo" aria-label="ZenLyft homepage"><img src="./Images/Zenlyft_icon.png" alt="ZenLyft Logo" class="nav__logo-img" /><span class="nav__logotype">ZenLyft</span></a>
 
         <div class="nav__links">
           <a href="index.html" class="nav__link">Home</a>
@@ -65,6 +66,7 @@
           <p class="page-header__desc">
             ZenLyft is a technology startup focused on building intelligent digital products that turn real-world complexity into simple, accessible experiences.
           </p>
+          <a href="our-journey.html" class="btn btn--primary page-header__action">Our Journey <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </section>
@@ -91,76 +93,85 @@
       </div>
     </section>
 
-    <!-- TEAM MEMBERS SECTION (With LinkedIn Profile Image Links) -->
-    <section class="section" id="team" aria-labelledby="team-heading">
+    <!-- EDITORIAL ANALOG PAPER-CUT TEAM SECTION -->
+    <section class="section editorial-team-section" id="team" aria-labelledby="team-heading">
       <div class="container">
-        <div class="section-header">
-          <div class="eyebrow">Leadership &amp; Team</div>
-          <h2 class="section-header__title" id="team-heading">The team behind ZenLyft</h2>
-          <p class="section-header__desc">
-            Click on any team member's profile image to view their official LinkedIn profile.
+        <!-- Editorial Header Block -->
+        <div class="editorial-header">
+          <h2 class="editorial-header__title" id="team-heading">The People Behind ZenLyft</h2>
+          <p class="editorial-header__subtitle">
+            An independent team of architects, engineers, and strategists building intelligent digital platforms.
           </p>
         </div>
 
-        <div class="team-grid">
+        <!-- Master Interactive Paper-Cut Stage Banner -->
+        <div class="papercut-stage-banner reveal">
+          <!-- Film & Paper Texture Elements -->
+          <div class="papercut-stage__texture"></div>
 
-          <!-- Team Member 1 -->
-          <div class="team-card reveal">
-            <a href="https://www.linkedin.com/in/zenlyft-founder-ceo" target="_blank" rel="noopener noreferrer" class="team-card__image-link" aria-label="View Alex Morgan's LinkedIn Profile">
-              <img src="./Images/Niresh Senthoor.png" alt="Niresh Senthoor U - Founder & CEO" class="team-card__image" />
-              <div class="team-card__linkedin-overlay">
-                <span class="team-card__linkedin-text">View LinkedIn</span>
-                <span class="team-card__linkedin-badge">in</span>
-              </div>
-            </a>
-            <div class="team-card__content">
-              <h3 class="team-card__name">Niresh Senthoor U</h3>
-              <div class="team-card__role">Founder &amp; CEO</div>
-              <p class="team-card__bio">
-                Directing product vision, business strategy, and organizational direction at ZenLyft.
-              </p>
-            </div>
+          <div class="papercut-stage__film-marker papercut-stage__film-marker--top">
+            <span>+</span>
+            <span>+</span>
           </div>
 
-          <!-- Team Member 2 -->
-          <div class="team-card reveal delay-1">
-            <a href="https://www.linkedin.com/in/zenlyft-cto" target="_blank" rel="noopener noreferrer" class="team-card__image-link" aria-label="View David Chen's LinkedIn Profile">
-              <img src="./Images/sanjay.jpeg" alt="David Chen - Co-Founder & CTO" class="team-card__image" />
-              <div class="team-card__linkedin-overlay">
-                <span class="team-card__linkedin-text">View LinkedIn</span>
-                <span class="team-card__linkedin-badge">in</span>
-              </div>
-            </a>
-            <div class="team-card__content">
-              <h3 class="team-card__name">Sanjay S</h3>
-              <div class="team-card__role">Co-Founder &amp; CTO</div>
-              <p class="team-card__bio">
-                Leading software architecture, backend infrastructure, and scalable system engineering.
-              </p>
-            </div>
+          <!-- Giant Editorial Background Typography -->
+          <div class="papercut-stage__brand-bg">
+            <span class="papercut-stage__brand-tag">FOUNDING TEAM</span>
+            <span class="papercut-stage__brand-word">ZenLyft</span>
           </div>
 
-          <!-- Team Member 3 -->
-          <div class="team-card reveal delay-2">
-            <a href="https://www.linkedin.com/in/zenlyft-ai-lead" target="_blank" rel="noopener noreferrer" class="team-card__image-link" aria-label="View Sarah Vance's LinkedIn Profile">
-              <img src="./Images/pravinraj.jpeg" alt="Pravinraj Raja - Co-Founder & CTO" class="team-card__image" />
-              <div class="team-card__linkedin-overlay">
-                <span class="team-card__linkedin-text">View LinkedIn</span>
-                <span class="team-card__linkedin-badge">in</span>
+          <!-- Hand-Cut Silhouette Cutouts Stage -->
+          <div class="papercut-stage__canvas">
+            
+            <!-- Sanjay S (Left Cutout) -->
+            <button class="papercut-person papercut-person--sanjay" data-member="sanjay" aria-label="Inspect Sanjay S profile">
+              <div class="papercut-person__wrap">
+                <img src="./Images/sanjay png.png" alt="Sanjay S - Co-Founder &amp; CTO" class="papercut-person__img" />
+                <div class="papercut-person__tape-note">
+                  <span class="papercut-person__name">Sanjay S</span>
+                  <span class="papercut-person__role">R&D &amp; Systems</span>
+                </div>
               </div>
-            </a>
-            <div class="team-card__content">
-              <h3 class="team-card__name">Pravinraj Raja</h3>
-              <div class="team-card__role">Co-Founder &amp; CTO</div>
-              <p class="team-card__bio">
-                Overseeing machine learning model deployment, data pipelines, and user-centered design.
-              </p>
-            </div>
-          </div>
+            </button>
 
+            <!-- Niresh Senthoor U (Center Dominant Cutout) -->
+            <button class="papercut-person papercut-person--niresh" data-member="niresh" aria-label="Inspect Niresh Senthoor U profile">
+              <div class="papercut-person__wrap">
+                <img src="./Images/nash png.png" alt="Niresh Senthoor U - Founder &amp; CEO" class="papercut-person__img" />
+                <div class="papercut-person__tape-note papercut-person__tape-note--center">
+                  <span class="papercut-person__name">Niresh Senthoor U</span>
+                  <span class="papercut-person__role">Founder &amp; CEO</span>
+                </div>
+              </div>
+            </button>
+
+            <!-- Pravinraj Raja (Right Cutout) -->
+            <button class="papercut-person papercut-person--pravinraj" data-member="pravinraj" aria-label="Inspect Pravinraj Raja profile">
+              <div class="papercut-person__wrap">
+                <img src="./Images/pravinraj cut.png" alt="Pravinraj Raja - Co-Founder &amp; CTO" class="papercut-person__img" />
+                <div class="papercut-person__tape-note">
+                  <span class="papercut-person__name">Pravinraj Raja</span>
+                  <span class="papercut-person__role">CTO &amp; AI Engineering</span>
+                </div>
+              </div>
+            </button>
+
+          </div>
+        </div>
+
+    <!-- EDITORIAL PROFILE MODAL CONTAINER -->
+    <div class="editorial-modal" id="editorial-profile-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-member-name">
+      <div class="editorial-modal__backdrop" id="editorial-modal-backdrop"></div>
+      
+      <div class="editorial-modal__dialog">
+        <div class="editorial-modal__tape"></div>
+        <button class="editorial-modal__close-btn" id="editorial-modal-close" aria-label="Close modal window">[ ESC / CLOSE ✕ ]</button>
+
+        <div class="editorial-modal__content" id="editorial-modal-body">
+          <!-- Dynamic Content Injected via JS -->
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- WHAT WE BELIEVE -->
     <section class="section" id="beliefs" aria-labelledby="beliefs-title">
@@ -291,7 +302,7 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <a href="index.html" class="footer__logo" aria-label="ZenLyft home">
-            <img src="./Images/ZenLyft__logo.png" alt="ZenLyft Logo" class="nav__logo-img" />
+            <img src="./Images/Zenlyft_icon_dark.png" alt="ZenLyft Logo" class="nav__logo-img" />
             <span>ZenLyft</span>
           </a>
           <p class="footer__tagline">Building technology for what comes next.</p>
@@ -300,6 +311,7 @@
           <h4 class="footer__heading">Company</h4>
           <nav class="footer__nav" aria-label="Footer company links">
             <a href="about.html" class="footer__link">About</a>
+            <a href="our-journey.html" class="footer__link">Our Journey</a>
             <a href="what-we-build.html" class="footer__link">What We Build</a>
             <a href="products.html" class="footer__link">Products</a>
             <a href="careers.html" class="footer__link">Careers</a>
@@ -319,6 +331,44 @@
       </div>
     </div>
   </footer>
+
+  <!-- Interactive Member Contact Modal -->
+  <div class="member-modal-backdrop" id="memberModalBackdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="member-modal">
+      <button class="member-modal__close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      <div class="member-modal__header">
+        <img src="" alt="" class="member-modal__avatar" id="modalAvatar" />
+        <div class="member-modal__info">
+          <h3 class="member-modal__name" id="modalName">Member Name</h3>
+          <div class="member-modal__role" id="modalRole">Role Title</div>
+          <span class="member-modal__tag" id="modalTag">ZenLyft Leadership</span>
+        </div>
+      </div>
+      <div class="member-modal__body">
+        <p class="member-modal__bio" id="modalBio">Member bio content goes here...</p>
+        
+        <div class="member-contact-actions">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="member-contact-btn member-contact-btn--linkedin" id="modalLinkedin">
+            <div class="member-contact-btn__left">
+              <span class="member-contact-btn__icon">in</span>
+              <span>Connect on LinkedIn</span>
+            </div>
+            <span style="font-size: 0.8rem;">Open Profile &rarr;</span>
+          </a>
+          
+          <a href="#" class="member-contact-btn member-contact-btn--email" id="modalEmail">
+            <div class="member-contact-btn__left">
+              <span class="member-contact-btn__icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </span>
+              <span id="modalEmailText">Send Direct Email</span>
+            </div>
+            <button type="button" class="member-contact-copy-btn" id="modalCopyEmailBtn">Copy Email</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
   <script src="js/animations.js"></script>
