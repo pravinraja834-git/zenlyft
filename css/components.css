@@ -103,6 +103,13 @@
   gap: var(--sp-2);
 }
 
+@media (max-width: 991px) {
+  .nav__actions > .btn {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.72rem;
+  }
+}
+
 .nav__hamburger {
   display: flex;
   flex-direction: column;
@@ -119,6 +126,27 @@
 @media (min-width: 992px) {
   .nav__hamburger {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav__logo {
+    gap: 6px;
+    font-size: 1.2rem;
+  }
+
+  .nav__logo-img {
+    height: 36px;
+  }
+
+  .nav__actions {
+    gap: 6px;
+  }
+
+  .nav__actions > .btn {
+    padding: 0.45rem 0.5rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.02em;
   }
 }
 
