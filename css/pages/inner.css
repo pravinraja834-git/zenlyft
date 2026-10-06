@@ -101,6 +101,30 @@
   padding: var(--sp-2) var(--sp-3);
 }
 
+@media (max-width: 560px) {
+  .journey-gallery__controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--sp-2);
+    row-gap: var(--sp-1);
+    padding: var(--sp-2);
+  }
+
+  .journey-gallery__dots {
+    grid-column: 1 / -1;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .journey-gallery__status {
+    align-self: center;
+  }
+
+  .journey-gallery__toggle {
+    justify-self: end;
+  }
+}
+
 .journey-gallery__dots {
   display: flex;
   align-items: center;
@@ -516,18 +540,19 @@
 /* Contact Form */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--sp-8);
 }
 
 @media (min-width: 840px) {
   .contact-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 .contact-info {
   display: flex;
+  min-width: 0;
   flex-direction: column;
   gap: var(--sp-5);
 }
@@ -549,6 +574,7 @@
 }
 
 .contact-form {
+  min-width: 0;
   background-color: #FAF7F2;
   border: 2px solid #1C1917;
   padding: var(--sp-6);
@@ -639,6 +665,7 @@
 
 /* Company Contact Channels Panel */
 .contact-channels-box {
+  min-width: 0;
   background-color: #FAF7F2;
   border: 2px solid #1C1917;
   padding: var(--sp-6);
@@ -719,6 +746,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  min-width: 0;
   overflow: hidden;
 }
 
@@ -742,6 +770,7 @@
 }
 
 .contact-channel-arrow {
+  flex: 0 0 auto;
   font-family: var(--font-mono);
   font-weight: 700;
   font-size: 1.1rem;
@@ -752,4 +781,32 @@
 .contact-channel-item:hover .contact-channel-arrow {
   transform: translateX(4px);
   color: #2CC1FF;
+}
+
+@media (max-width: 640px) {
+  .contact-grid {
+    gap: var(--sp-6);
+  }
+
+  .contact-form,
+  .contact-channels-box {
+    padding: var(--sp-3);
+  }
+
+  .contact-channel-item {
+    gap: var(--sp-15);
+    padding: var(--sp-15);
+  }
+}
+
+@media (max-width: 380px) {
+  .contact-form,
+  .contact-channels-box {
+    padding: var(--sp-2);
+  }
+
+  .contact-channel-item {
+    gap: var(--sp-1);
+    padding: var(--sp-15) var(--sp-1);
+  }
 }
