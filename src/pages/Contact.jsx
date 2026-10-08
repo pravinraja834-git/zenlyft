@@ -59,14 +59,13 @@ function Contact() {
               <div className="contact-channels-box">
                 <div className="contact-channels-header">
                   <span className="contact-channels-badge">Official Channels</span>
-                  <h2 className="contact-channels-title">Direct Contact</h2>
-                  <p className="contact-channels-desc">Reach out directly by phone, WhatsApp, or email.</p>
+                  <h2 className="contact-channels-title">Direct Contact &amp; Socials</h2>
+                  <p className="contact-channels-desc">Reach out by phone, WhatsApp, email, or follow us on social media.</p>
                 </div>
 
                 <div className="contact-channels-list">
                   {/* 1. Mobile Number */}
                   <a href="tel:+919600729402" className="contact-channel-item" aria-label="Call Mobile Number">
-                    <div className="contact-channel-icon">&#128222;</div>
                     <div className="contact-channel-details">
                       <span className="contact-channel-label">Mobile Number</span>
                       <span className="contact-channel-value">+91 96007 29402</span>
@@ -76,7 +75,6 @@ function Contact() {
 
                   {/* 2. WhatsApp Number */}
                   <a href="https://wa.me/919600729402" target="_blank" rel="noopener noreferrer" className="contact-channel-item" aria-label="Chat on WhatsApp">
-                    <div className="contact-channel-icon">&#128172;</div>
                     <div className="contact-channel-details">
                       <span className="contact-channel-label">WhatsApp Chat</span>
                       <span className="contact-channel-value">+91 96007 29402</span>
@@ -86,7 +84,6 @@ function Contact() {
 
                   {/* 3. Mail ID */}
                   <a href="mailto:contact@zenlyft.in" className="contact-channel-item" aria-label="Send Email">
-                    <div className="contact-channel-icon">&#9993;</div>
                     <div className="contact-channel-details">
                       <span className="contact-channel-label">Official Email</span>
                       <span className="contact-channel-value">contact@zenlyft.in</span>
@@ -94,6 +91,23 @@ function Contact() {
                     <span className="contact-channel-arrow">→</span>
                   </a>
 
+                  {/* 4. LinkedIn */}
+                  <a href="https://www.linkedin.com/company/zenlyft/" target="_blank" rel="noopener noreferrer" className="contact-channel-item" aria-label="Visit LinkedIn Page">
+                    <div className="contact-channel-details">
+                      <span className="contact-channel-label">LinkedIn Page</span>
+                      <span className="contact-channel-value">zenlyft</span>
+                    </div>
+                    <span className="contact-channel-arrow">→</span>
+                  </a>
+
+                  {/* 5. Instagram */}
+                  <a href="https://www.instagram.com/zen_lyft/" target="_blank" rel="noopener noreferrer" className="contact-channel-item" aria-label="Visit Instagram Profile">
+                    <div className="contact-channel-details">
+                      <span className="contact-channel-label">Instagram Profile</span>
+                      <span className="contact-channel-value">zen_lyft</span>
+                    </div>
+                    <span className="contact-channel-arrow">→</span>
+                  </a>
                 </div>
               </div>
 
