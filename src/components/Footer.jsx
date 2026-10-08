@@ -40,8 +40,7 @@ function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p className="footer__copyright">
-            &copy; 2026 ZenLyft Inc. All rights reserved.
+          <p className="footer__copyright">All rights reserved.
           </p>
         </div>
       </div>
