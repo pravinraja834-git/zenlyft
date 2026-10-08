@@ -268,22 +268,44 @@
   border: 2px solid var(--color-border);
   background: var(--color-surface);
   box-shadow: var(--shadow-lg);
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-behavior: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) var(--color-surface-raised);
 }
 
 .journey-carousel__track {
   display: flex;
   width: max-content;
-  animation: journey-scroll-right 32s linear infinite;
 }
 
-#journey-gallery .journey-carousel__track {
-  animation-duration: 64s;
-}
-
-.journey-carousel__track:focus-visible {
+.journey-carousel:focus-visible {
   outline: 3px solid var(--color-accent);
   outline-offset: -3px;
+}
+
+.journey-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.journey-carousel::-webkit-scrollbar-track {
+  background: var(--color-surface-raised);
+}
+
+.journey-carousel::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+}
+
+.journey-carousel__controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--sp-2);
+}
+
+.journey-intro .section-header__title {
+  font-family: var(--font-display);
 }
 
 .journey-carousel__set {
@@ -305,25 +327,9 @@
   box-shadow: var(--shadow-sm);
 }
 
-@keyframes journey-scroll-right {
-  from {
-    transform: translateX(-50%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .journey-carousel__track {
-    width: 100%;
-    overflow-x: auto;
-    animation: none;
-  }
-
-  .journey-carousel__set[aria-hidden="true"] {
-    display: none;
+  .journey-carousel {
+    scroll-behavior: auto;
   }
 }
 

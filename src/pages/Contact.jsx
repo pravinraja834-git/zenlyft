@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useRevealAnimation from '../hooks/useRevealAnimation';
 import '../css/pages/inner.css';
@@ -26,6 +26,48 @@ const JOURNEY_IMAGES = [
 function Contact() {
   useRevealAnimation();
   const navigate = useNavigate();
+  const carouselRef = useRef(null);
+  const carouselInitialized = useRef(false);
+  const [isAutoPaused, setIsAutoPaused] = useState(
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
+
+  useEffect(() => {
+    if (isAutoPaused) return undefined;
+
+    const carousel = carouselRef.current;
+    const track = carousel?.querySelector('.journey-carousel__track');
+    if (!carousel || !track) return undefined;
+
+    let frameId;
+    let previousTimestamp;
+
+    const animate = (timestamp) => {
+      const loopDistance = track.scrollWidth / 2;
+      if (loopDistance > carousel.clientWidth) {
+        if (!carouselInitialized.current) {
+          carousel.scrollLeft = loopDistance;
+          carouselInitialized.current = true;
+        } else if (carousel.scrollLeft > loopDistance) {
+          carousel.scrollLeft %= loopDistance;
+        } else if (carousel.scrollLeft <= 0) {
+          carousel.scrollLeft = loopDistance;
+        }
+
+        if (previousTimestamp !== undefined) {
+          const elapsed = Math.min(timestamp - previousTimestamp, 50);
+          carousel.scrollLeft -= (loopDistance * elapsed) / 128_000;
+          if (carousel.scrollLeft <= 0) carousel.scrollLeft += loopDistance;
+        }
+      }
+
+      previousTimestamp = timestamp;
+      frameId = window.requestAnimationFrame(animate);
+    };
+
+    frameId = window.requestAnimationFrame(animate);
+    return () => window.cancelAnimationFrame(frameId);
+  }, [isAutoPaused]);
 
   const handleImageClick = (item) => {
     navigate(`/our-journey?event=${item.eventId}&img=${item.imgIndex}`, {
@@ -129,8 +171,24 @@ function Contact() {
             <div className="eyebrow">Our Journey</div>
             <h2 className="section-header__title" id="journey-heading">Built around people and purpose.</h2>
           </div>
-          <div className="journey-carousel" aria-label="ZenLyft journey slideshow">
-            <div className="journey-carousel__track" tabIndex="0">
+          <div
+            className="journey-carousel"
+            ref={carouselRef}
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="ZenLyft team and community photos"
+            tabIndex="0"
+            onPointerDown={() => setIsAutoPaused(true)}
+            onKeyDown={() => setIsAutoPaused(true)}
+            onWheel={(event) => {
+              setIsAutoPaused(true);
+              if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
+                event.preventDefault();
+                event.currentTarget.scrollLeft += event.deltaY;
+              }
+            }}
+          >
+            <div className="journey-carousel__track">
               <div className="journey-carousel__set">
                 {JOURNEY_IMAGES.map((img, idx) => (
                   <button
@@ -165,6 +223,15 @@ function Contact() {
                 ))}
               </div>
             </div>
+          </div>
+          <div className="journey-carousel__controls">
+            <button
+              className="journey-gallery__toggle"
+              type="button"
+              onClick={() => setIsAutoPaused((paused) => !paused)}
+            >
+              {isAutoPaused ? 'Resume' : 'Pause'} automatic scrolling
+            </button>
           </div>
         </div>
       </section>
