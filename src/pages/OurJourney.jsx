@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useRevealAnimation from '../hooks/useRevealAnimation';
 import '../css/pages/inner.css';
 
@@ -61,8 +61,8 @@ const EVENTS = [
 ];
 
 /* ─── Modal component ─── */
-function EventModal({ event, onClose }) {
-  const [activeIdx, setActiveIdx] = useState(0);
+function EventModal({ event, initialIndex, onClose }) {
+  const [activeIdx, setActiveIdx] = useState(initialIndex);
 
   // Close on Escape key
   useEffect(() => {
@@ -152,7 +152,26 @@ function EventModal({ event, onClose }) {
 /* ─── Main page component ─── */
 function OurJourney() {
   useRevealAnimation();
-  const [activeEvent, setActiveEvent] = useState(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const params = new URLSearchParams(location.search);
+  const linkedEvent = EVENTS.find((item) => item.id === params.get('event'));
+  const requestedIndex = Number.parseInt(params.get('img') ?? '0', 10);
+  const initialIndex = linkedEvent && !Number.isNaN(requestedIndex)
+    ? Math.max(0, Math.min(requestedIndex, linkedEvent.images.length - 1))
+    : 0;
+  const activeEvent = linkedEvent
+    ? { event: linkedEvent, initialIndex }
+    : selectedEvent;
+
+  const closeEvent = () => {
+    setSelectedEvent(null);
+    if (new URLSearchParams(location.search).has('event')) {
+      navigate('/our-journey', { replace: true });
+    }
+  };
 
   return (
     <main id="main-content">
@@ -211,7 +230,7 @@ function OurJourney() {
               <button
                 key={event.id}
                 className={`journey-event-card reveal${i > 0 ? ` delay-${i}` : ''}`}
-                onClick={() => setActiveEvent(event)}
+                onClick={() => setSelectedEvent({ event, initialIndex: 0 })}
                 aria-label={`Open ${event.title} gallery`}
               >
                 {/* Cover image */}
@@ -264,8 +283,9 @@ function OurJourney() {
       {/* ── MODAL ── */}
       {activeEvent && (
         <EventModal
-          event={activeEvent}
-          onClose={() => setActiveEvent(null)}
+          event={activeEvent.event}
+          initialIndex={activeEvent.initialIndex}
+          onClose={closeEvent}
         />
       )}
 

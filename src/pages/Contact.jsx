@@ -178,10 +178,15 @@ function Contact() {
             aria-roledescription="carousel"
             aria-label="ZenLyft team and community photos"
             tabIndex="0"
-            onPointerDown={() => setIsAutoPaused(true)}
-            onKeyDown={() => setIsAutoPaused(true)}
+            onMouseEnter={() => setIsAutoPaused(true)}
+            onMouseLeave={() => setIsAutoPaused(false)}
+            onFocus={() => setIsAutoPaused(true)}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) {
+                setIsAutoPaused(false);
+              }
+            }}
             onWheel={(event) => {
-              setIsAutoPaused(true);
               if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
                 event.preventDefault();
                 event.currentTarget.scrollLeft += event.deltaY;
