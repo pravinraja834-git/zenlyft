@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useRevealAnimation from '../hooks/useRevealAnimation';
 import '../css/pages/inner.css';
@@ -25,7 +25,6 @@ const JOURNEY_IMAGES = [
 
 function Contact() {
   useRevealAnimation();
-  const [isPaused, setIsPaused] = useState(false);
   const navigate = useNavigate();
 
   const handleImageClick = (item) => {
@@ -125,6 +124,9 @@ function Contact() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
       <section className="section" id="journey-gallery" aria-labelledby="journey-heading">
         <div className="container">
@@ -132,6 +134,24 @@ function Contact() {
             <div className="eyebrow">Our Journey</div>
             <h2 className="section-header__title" id="journey-heading">Built around people and purpose.</h2>
           </div>
+          <div className="journey-carousel" aria-label="ZenLyft journey slideshow">
+            <div className="journey-carousel__track" tabIndex="0">
+              <div className="journey-carousel__set">
+                {JOURNEY_IMAGES.map((img, idx) => (
+                  <button
+                    key={`set1-${idx}`}
+                    type="button"
+                    className="journey-slide__item"
+                    onClick={() => handleImageClick(img)}
+                    aria-label={`View story for ${img.title}`}
+                  >
+                    <img className="journey-slide__image" src={img.src} alt={img.alt} loading={idx > 2 ? 'lazy' : undefined} />
+                    <div className="journey-slide__overlay">
+                      <span className="journey-slide__badge">View Story: {img.title} →</span>
+                    </div>
+                  </button>
+                ))}
+              </div>
               <div className="journey-carousel__set" aria-hidden="true">
                 {JOURNEY_IMAGES.map((img, idx) => (
                   <button
