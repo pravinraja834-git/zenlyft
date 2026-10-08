@@ -277,6 +277,10 @@
   animation: journey-scroll-right 32s linear infinite;
 }
 
+#journey-gallery .journey-carousel__track {
+  animation-duration: 64s;
+}
+
 .journey-carousel__track:focus-visible {
   outline: 3px solid var(--color-accent);
   outline-offset: -3px;
