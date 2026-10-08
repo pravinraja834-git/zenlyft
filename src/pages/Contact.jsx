@@ -229,15 +229,6 @@ function Contact() {
               </div>
             </div>
           </div>
-          <div className="journey-carousel__controls">
-            <button
-              className="journey-gallery__toggle"
-              type="button"
-              onClick={() => setIsAutoPaused((paused) => !paused)}
-            >
-              {isAutoPaused ? 'Resume' : 'Pause'} automatic scrolling
-            </button>
-          </div>
         </div>
       </section>
 
