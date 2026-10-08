@@ -126,83 +126,12 @@ function Contact() {
               </div>
             </div>
 
-            {/* FORM */}
-            <form className="contact-form reveal delay-1" action="#" method="POST">
-              <div className="form-group">
-                <label htmlFor="contact-name" className="form-label">Full Name</label>
-                <input type="text" id="contact-name" name="name" className="form-input" placeholder="Your name" required />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="contact-email" className="form-label">Email Address</label>
-                <input type="email" id="contact-email" name="email" className="form-input" placeholder="name@company.com" required />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="contact-category" className="form-label">Inquiry Category</label>
-                <select id="contact-category" name="category" className="form-select" required>
-                  <option value="" disabled defaultValue>Select category</option>
-                  <option value="business">Business Inquiries</option>
-                  <option value="partnerships">Partnerships</option>
-                  <option value="product">Product Discussions</option>
-                  <option value="careers">Careers</option>
-                  <option value="general">General Inquiries</option>
-                </select>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="contact-message" className="form-label">Message</label>
-                <textarea id="contact-message" name="message" className="form-textarea" placeholder="How can we help?" required></textarea>
-              </div>
-
-              <button type="submit" className="btn btn--primary btn--full">Send Message</button>
-            </form>
-
-          </div>
-        </div>
-      </section>
-
       <section className="section" id="journey-gallery" aria-labelledby="journey-heading">
         <div className="container">
           <div className="journey-intro">
             <div className="eyebrow">Our Journey</div>
             <h2 className="section-header__title" id="journey-heading">Built around people and purpose.</h2>
-            <p className="section-header__desc">
-              Hover over or click any image to pause auto-scroll and jump straight into that story in our journey.
-            </p>
           </div>
-
-          <div className="journey-carousel" aria-label="ZenLyft journey slideshow">
-            <div className="journey-carousel__header">
-              <span className="journey-carousel__status">
-                {isPaused ? '⏸ Scroll Paused' : '▶ Auto-scrolling (Hover image or click button to pause)'}
-              </span>
-              <button
-                type="button"
-                className="journey-carousel__pause-btn"
-                onClick={() => setIsPaused(!isPaused)}
-                aria-label={isPaused ? 'Resume auto-scroll' : 'Pause auto-scroll'}
-              >
-                {isPaused ? '▶ Resume Scroll' : '⏸ Pause Scroll'}
-              </button>
-            </div>
-            <div className={`journey-carousel__track ${isPaused ? 'journey-carousel__track--paused' : ''}`} tabIndex="0">
-              <div className="journey-carousel__set">
-                {JOURNEY_IMAGES.map((img, idx) => (
-                  <button
-                    key={`set1-${idx}`}
-                    type="button"
-                    className="journey-slide__item"
-                    onClick={() => handleImageClick(img)}
-                    aria-label={`View story for ${img.title}`}
-                  >
-                    <img className="journey-slide__image" src={img.src} alt={img.alt} loading={idx > 2 ? 'lazy' : undefined} />
-                    <div className="journey-slide__overlay">
-                      <span className="journey-slide__badge">View Story: {img.title} →</span>
-                    </div>
-                  </button>
-                ))}
-              </div>
               <div className="journey-carousel__set" aria-hidden="true">
                 {JOURNEY_IMAGES.map((img, idx) => (
                   <button
