@@ -544,12 +544,6 @@
   gap: var(--sp-8);
 }
 
-@media (min-width: 840px) {
-  .contact-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
 .contact-info {
   display: flex;
   min-width: 0;
@@ -704,8 +698,8 @@
 }
 
 .contact-channels-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: var(--sp-3);
 }
 

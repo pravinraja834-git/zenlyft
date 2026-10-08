@@ -59,8 +59,8 @@ function Contact() {
               <div className="contact-channels-box">
                 <div className="contact-channels-header">
                   <span className="contact-channels-badge">Official Channels</span>
-                  <h2 className="contact-channels-title">Direct Contact &amp; Socials</h2>
-                  <p className="contact-channels-desc">Click any channel below to reach out directly through mobile, WhatsApp, email, or social media.</p>
+                  <h2 className="contact-channels-title">Direct Contact</h2>
+                  <p className="contact-channels-desc">Reach out directly by phone, WhatsApp, or email.</p>
                 </div>
 
                 <div className="contact-channels-list">
@@ -94,25 +94,6 @@ function Contact() {
                     <span className="contact-channel-arrow">→</span>
                   </a>
 
-                  {/* 4. LinkedIn ID */}
-                  <a href="https://www.linkedin.com/company/zenlyft/" target="_blank" rel="noopener noreferrer" className="contact-channel-item" aria-label="Visit LinkedIn Page">
-                    <div className="contact-channel-icon">&#128188;</div>
-                    <div className="contact-channel-details">
-                      <span className="contact-channel-label">LinkedIn Page</span>
-                      <span className="contact-channel-value">zenlyft</span>
-                    </div>
-                    <span className="contact-channel-arrow">→</span>
-                  </a>
-
-                  {/* 5. Instagram ID */}
-                  <a href="https://www.instagram.com/zen_lyft/" target="_blank" rel="noopener noreferrer" className="contact-channel-item" aria-label="Visit Instagram Profile">
-                    <div className="contact-channel-icon">&#128247;</div>
-                    <div className="contact-channel-details">
-                      <span className="contact-channel-label">Instagram Profile</span>
-                      <span className="contact-channel-value">zen_lyft</span>
-                    </div>
-                    <span className="contact-channel-arrow">→</span>
-                  </a>
                 </div>
               </div>
 
