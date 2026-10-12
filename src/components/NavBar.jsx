@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 function NavBar() {
   const { pathname } = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Close drawer when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  // Lock scroll and handle Escape key when drawer is open
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   const navLink = (to, label) => (
     <Link
@@ -17,6 +44,7 @@ function NavBar() {
     <Link
       to={to}
       className={`nav__drawer-link${pathname === to ? ' nav__drawer-link--active' : ''}`}
+      onClick={() => setIsOpen(false)}
     >
       {label}
     </Link>
@@ -27,7 +55,7 @@ function NavBar() {
       <nav className="nav" role="navigation" aria-label="Main navigation">
         <div className="container nav__inner">
           {/* Logo */}
-          <Link to="/" className="nav__logo" aria-label="ZenLyft homepage">
+          <Link to="/" className="nav__logo" aria-label="ZenLyft homepage" onClick={() => setIsOpen(false)}>
             <img src="/Images/Zenlyft_icon.png" alt="ZenLyft Logo" className="nav__logo-img" />
             <span className="nav__logotype">ZenLyft</span>
           </Link>
@@ -45,7 +73,14 @@ function NavBar() {
           {/* Action CTA & Mobile Toggle */}
           <div className="nav__actions">
             <Link to="/products" className="btn btn--primary" id="nav-cta">Explore Products</Link>
-            <button className="nav__hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+            <button
+              className="nav__hamburger"
+              type="button"
+              aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isOpen ? 'true' : 'false'}
+              aria-controls="mobile-drawer"
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
               <span></span><span></span><span></span>
             </button>
           </div>
@@ -53,7 +88,11 @@ function NavBar() {
       </nav>
 
       {/* Mobile Drawer */}
-      <div className="nav__drawer" id="mobile-drawer" aria-label="Mobile navigation">
+      <div
+        className={`nav__drawer${isOpen ? ' nav__drawer--open' : ''}`}
+        id="mobile-drawer"
+        aria-label="Mobile navigation"
+      >
         <nav className="nav__drawer-links">
           {drawerLink('/', 'Home')}
           {drawerLink('/about', 'About')}
@@ -63,7 +102,13 @@ function NavBar() {
           {drawerLink('/contact', 'Contact')}
         </nav>
         <div className="nav__drawer-actions">
-          <Link to="/products" className="btn btn--primary btn--full">Explore Products</Link>
+          <Link
+            to="/products"
+            className="btn btn--primary btn--full"
+            onClick={() => setIsOpen(false)}
+          >
+            Explore Products
+          </Link>
         </div>
       </div>
     </header>
